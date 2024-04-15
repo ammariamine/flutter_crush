@@ -88,9 +88,8 @@ class _HomePageState extends State<HomePage>
             : screenSize.height);
 
     return Scaffold(
-      body: PopScope(
+      body: Container(
         // No way to get back
-        canPop: false,
         child: Stack(
           children: <Widget>[
             Container(
@@ -98,18 +97,6 @@ class _HomePageState extends State<HomePage>
                 image: DecorationImage(
                   image: AssetImage('assets/images/background/background2.jpg'),
                   fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ShadowedText(
-                  text: 'by Didier Boelens',
-                  color: Colors.white,
-                  fontSize: 12.0,
-                  offset: Offset(1.0, 1.0),
                 ),
               ),
             ),
@@ -131,9 +118,8 @@ class _HomePageState extends State<HomePage>
                         width: 80.0,
                         height: 60.0,
                         borderRadius: 50.0,
-                        text: 'Level ${index + 1}',
                         onTap: () async {
-                          Level newLevel = await gameBloc.setLevel(index + 1);
+                          Level newLevel = await gameBloc.setLevel(1);
 
                           // Open the Game page
                           Navigator.of(context).push(GamePage.route(newLevel));
@@ -149,29 +135,6 @@ class _HomePageState extends State<HomePage>
               top: _animation.value * 250.0 - 150.0,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.0),
-                child: DoubleCurvedContainer(
-                  width: screenSize.width - 60.0,
-                  height: 150.0,
-                  outerColor: Colors.blue[700]!,
-                  innerColor: Colors.blue,
-                  child: Stack(
-                    children: <Widget>[
-                      ShineEffect(
-                        offset: Offset(100.0, 100.0),
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: ShadowedText(
-                          text: 'Flutter Crush',
-                          color: Colors.white,
-                          fontSize: 26.0,
-                          shadowOpacity: 1.0,
-                          offset: Offset(1.0, 1.0),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               ),
             ),
           ],
@@ -179,4 +142,6 @@ class _HomePageState extends State<HomePage>
       ),
     );
   }
+
+
 }

@@ -136,12 +136,6 @@ class _GamePageState extends State<GamePage>
       alignment: Alignment.bottomLeft,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ShadowedText(
-          text: 'by Didier Boelens',
-          color: Colors.white,
-          fontSize: 12.0,
-          offset: Offset(1.0, 1.0),
-        ),
       ),
     );
   }
